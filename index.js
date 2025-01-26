@@ -39,6 +39,7 @@ app.post("/tracking", async (req, res) => {
   caseId=caseId.trim();
   try {
     const caseTrack = await Case.findOne({caseId: caseId});
+    console.log(caseTrack);
     res.json({message: caseTrack.caseStatus});
   } catch (error) {
     res.status(500).json({ message: "Internal server error" });
