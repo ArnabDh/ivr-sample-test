@@ -47,7 +47,7 @@ app.post("/register", async (req, res) => {
   const { caseDescription, caseDate, caseTime, caseLocation, caseImpact, caseRisk, caseNotify, caseAnonymous, caseStatus, email } = req.body;
   console.log(req.body);
   try {
-    const caseId = `CA${Math.floor(10000 + Math.random() * 90000)}`; // Generates CA-XXXXX where X is a number
+    const caseId = `${Math.floor(1000 + Math.random() * 9000)}`; // Generates CA-XXXX where X is a number
     const newCase = new Case({ caseId, caseDescription, caseDate, caseTime, caseLocation, caseImpact, caseRisk, caseNotify, caseAnonymous, caseStatus, email });
     await newCase.save();
     res.json({ caseId: caseId, message: "Case registered successfully" });
