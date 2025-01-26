@@ -35,6 +35,8 @@ app.listen(PORT, () => {
 app.post("/tracking", async (req, res) => {
   const  caseId  = req.body.id;
   console.log(req.body);
+  console.log(caseId);
+  caseId=caseId.trim();
   try {
     const caseTrack = await Case.findOne({caseId: caseId});
     res.json({message: caseTrack.caseStatus});
