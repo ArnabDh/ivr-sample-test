@@ -54,7 +54,7 @@ app.post("/register", async (req, res) => {
     const caseStatus = "Pending";
     const newCase = new Case({ caseId, caseDescription, caseDate, caseTime, caseLocation, caseImpact, caseRisk, caseNotify, caseAnonymous, caseStatus, email });
     await newCase.save();
-    res.json({ caseId: caseId, message: "Case registered successfully" });
+    res.json(newCase);
   } catch (error) {
     res.status(500).json({ message: "Internal server error" });
   }
